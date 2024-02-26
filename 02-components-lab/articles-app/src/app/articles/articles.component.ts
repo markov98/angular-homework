@@ -7,12 +7,11 @@ import { ArticleData } from '../data/data';
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.css']
 })
-export class ArticlesComponent implements OnInit {
+export class ArticlesComponent implements OnInit{
   articles: Article[] = [];
+  constructor(){}
 
-  constructor(private articleData: ArticleData) {}
-
-  ngOnInit() {
-    this.articles = this.articleData.getData();
+  ngOnInit(): void {
+    this.articles = new ArticleData(). getData();
   }
 }
