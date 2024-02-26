@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Article } from '../models/article.model';
+import { ArticleData } from '../data/data';
 
 @Component({
   selector: 'app-articles',
-  standalone: true,
-  imports: [],
   templateUrl: './articles.component.html',
-  styleUrl: './articles.component.css'
+  styleUrls: ['./articles.component.css']
 })
-export class ArticlesComponent {
+export class ArticlesComponent implements OnInit {
+  articles: Article[] = [];
 
+  constructor(private articleData: ArticleData) {}
+
+  ngOnInit() {
+    this.articles = this.articleData.getData();
+  }
 }
