@@ -15,5 +15,9 @@ export class ApiService {
 
   getThemes() { return this.http.get<Theme[]>(`${apiUrl}/themes`) }
 
-  getPosts(limit?: number) { return this.http.get<Post[]>(`${apiUrl}/posts`) }
+  getPosts(limit?: number) {
+    if (limit) { return this.http.get<Post[]>(`${apiUrl}/posts?limit=${limit}`) }
+
+    return this.http.get<Post[]>(`${apiUrl}/posts`)
+  }
 }
