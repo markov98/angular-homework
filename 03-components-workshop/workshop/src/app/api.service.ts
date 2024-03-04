@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { Theme } from './types/theme';
 import { Post } from './types/post';
 
@@ -18,6 +18,6 @@ export class ApiService {
   getPosts(limit?: number) {
     if (limit) { return this.http.get<Post[]>(`${apiUrl}/posts?limit=${limit}`) }
 
-    return this.http.get<Post[]>(`${apiUrl}/posts`)
+    return this.http.get<Post[]>(`${apiUrl}/posts`);
   }
 }
