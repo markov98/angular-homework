@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { WelcomeMsgComponent } from './welcome-msg/welcome-msg.component';
+import { UserRoutingModule } from '../user/user-routing.module';
 
 
 
@@ -11,7 +12,8 @@ import { WelcomeMsgComponent } from './welcome-msg/welcome-msg.component';
     WelcomeMsgComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    UserRoutingModule
   ],
   exports: [
     LoaderComponent,
