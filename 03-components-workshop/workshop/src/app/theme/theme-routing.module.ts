@@ -7,7 +7,7 @@ import { CurrentThemeComponent } from './current-theme/current-theme.component';
 const routes: Routes = [
   {
     path: 'themes', children: [
-      { path: '', component: MainComponent },
+      { path: '', pathMatch: 'full', component: MainComponent },
       { path: 'add', component: AddThemeComponent },
       { path: ':themeId', component: CurrentThemeComponent }
     ]

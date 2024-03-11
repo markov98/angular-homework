@@ -5,7 +5,7 @@ import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
-  { path: '**', redirectTo: '404' },
+  { path: '**', redirectTo: '/404' },
   { path: '404', pathMatch: 'full', component: ErrorComponent }
 ];
 
