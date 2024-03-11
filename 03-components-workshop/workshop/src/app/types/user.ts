@@ -1,6 +1,8 @@
+import { Post } from "./post";
+import { Theme } from "./theme";
 export interface User {
-    themes: string[];
-    posts: string[];
+    themes: Theme[];
+    posts: Post[];
     _id: string;
     tel: string;
     email: string;
