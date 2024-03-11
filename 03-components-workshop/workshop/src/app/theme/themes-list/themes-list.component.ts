@@ -12,20 +12,31 @@ export class ThemesListComponent implements OnInit {
   themes: Theme[] | null = [];
   isLoading: boolean = true;
 
-  constructor(private api: ApiService, private userService: UserService) { }
+  constructor(private api: ApiService, private userService: UserService) {}
 
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
   }
 
+  get userId(): string {
+    return this.userService.user?.id || '';
+  }
+
   ngOnInit(): void {
     this.api.getThemes().subscribe((themes) => {
-      console.log(themes);
       this.themes = themes;
 
       setTimeout(() => {
         this.isLoading = false;
-      }, 500);
+      }, 1000);
     });
+  }
+
+  isSubscribed(theme: Theme) {
+    const isSubscribedUser = theme.subscribers.find((s) => {
+      return s === this.userService.user?.id;
+    });
+
+    return !!isSubscribedUser;
   }
 }
