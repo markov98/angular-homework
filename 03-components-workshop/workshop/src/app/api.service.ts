@@ -15,6 +15,13 @@ export class ApiService {
 
   getThemes() { return this.http.get<Theme[]>(`${apiUrl}/themes`) }
 
+  createTheme(themeName: string, postText: string) {
+    const { apiUrl } = environment;
+    const payload = { themeName, postText };
+
+    return this.http.post<Theme>(`${apiUrl}/themes`, payload);
+  }
+
   getPosts(limit?: number) {
     if (limit) { return this.http.get<Post[]>(`${apiUrl}/posts?limit=${limit}`) }
 
