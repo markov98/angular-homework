@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { WelcomeMsgComponent } from './welcome-msg/welcome-msg.component';
 import { UserRoutingModule } from '../user/user-routing.module';
+import { EmailDirective } from './validators/email.directive';
 
 
 
 @NgModule({
   declarations: [
     LoaderComponent,
-    WelcomeMsgComponent
+    WelcomeMsgComponent,
+    EmailDirective
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { UserRoutingModule } from '../user/user-routing.module';
   ],
   exports: [
     LoaderComponent,
-    WelcomeMsgComponent
+    WelcomeMsgComponent,
+    EmailDirective
   ]
 })
 export class SharedModule { }
