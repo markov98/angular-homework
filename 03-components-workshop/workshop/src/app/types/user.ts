@@ -1,22 +1,27 @@
-import { Post } from "./post";
-import { Theme } from "./theme";
+import { Post } from './post';
 export interface User {
-    themes: Theme[];
-    posts: Post[];
-    _id: string;
-    tel: string;
-    email: string;
-    username: string;
-    password: string;
-    created_at: string;
-    updatedAt: string;
-    __v: number;
+  themes: string[];
+  posts: Post[];
+  _id: string;
+  tel: string;
+  email: string;
+  username: string;
+  password: string;
+  created_at: string;
+  updatedAt: string;
+  __v: number;
 }
 
 export interface UserForAuth {
-    firstName: string;
-    email: string;
-    phoneNumber: string;
-    password: string;
-    id: string;
-  }
+  firstName: string;
+  email: string;
+  phoneNumber: string;
+  password: string;
+  id: string;
+}
+
+export interface ProfileDetails {
+  username: string;
+  email: string;
+  tel: string;
+}
