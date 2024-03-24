@@ -8,7 +8,6 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
-import { ErrorComponent } from './error/error.component';
 import { ThemeModule } from './theme/theme.module';
 import { appInterceptorProvider } from './app.interceptor';
 
@@ -16,8 +15,7 @@ import { appInterceptorProvider } from './app.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ErrorComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +24,7 @@ import { appInterceptorProvider } from './app.interceptor';
     HttpClientModule,
     UserModule,
     ThemeModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]

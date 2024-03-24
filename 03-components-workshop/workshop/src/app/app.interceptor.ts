@@ -8,7 +8,7 @@ import {
 import { Injectable, Provider } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { ErrorService } from './error/error.service';
+import { ErrorService } from './core/error/error.service';
 import { Router } from '@angular/router';
 
 const { apiUrl } = environment;
@@ -46,7 +46,7 @@ class AppInterceptor implements HttpInterceptor {
 }
 
 export const appInterceptorProvider: Provider = {
-    useFactory: AppInterceptor,
+    useClass: AppInterceptor,
     multi: true,
     provide: HTTP_INTERCEPTORS,
 };
