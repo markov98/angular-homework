@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
 import { ErrorComponent } from './error/error.component';
 import { ThemeModule } from './theme/theme.module';
+import { appInterceptorProvider } from './app.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { ThemeModule } from './theme/theme.module';
     ThemeModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
