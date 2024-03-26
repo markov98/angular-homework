@@ -10,13 +10,15 @@ import { HomeComponent } from './home/home.component';
 import { ThemeModule } from './theme/theme.module';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AuthenticateComponent
+    AuthenticateComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
