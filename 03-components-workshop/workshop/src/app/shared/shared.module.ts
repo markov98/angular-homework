@@ -4,6 +4,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { WelcomeMsgComponent } from './welcome-msg/welcome-msg.component';
 import { UserRoutingModule } from '../user/user-routing.module';
 import { EmailDirective } from './validators/email.directive';
+import { SlicePipe } from './pipes/slice.pipe';
 
 
 
@@ -11,7 +12,8 @@ import { EmailDirective } from './validators/email.directive';
   declarations: [
     LoaderComponent,
     WelcomeMsgComponent,
-    EmailDirective
+    EmailDirective,
+    SlicePipe
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { EmailDirective } from './validators/email.directive';
   exports: [
     LoaderComponent,
     WelcomeMsgComponent,
-    EmailDirective
+    EmailDirective,
+    SlicePipe
   ]
 })
 export class SharedModule { }
