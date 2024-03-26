@@ -1,19 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
+import { environment } from 'src/environments/environment.development';
 import { Theme } from './types/theme';
 import { Post } from './types/post';
 
-const { apiUrl } = environment;
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getThemes() { return this.http.get<Theme[]>(`${apiUrl}/themes`) }
+  //   THEMES
+  getThemes() {
+    const { apiUrl } = environment;
+    return this.http.get<Theme[]>(`${apiUrl}/themes`);
+  }
 
   getTheme(id: string) {
     const { apiUrl } = environment;
@@ -21,15 +22,28 @@ export class ApiService {
   }
 
   createTheme(themeName: string, postText: string) {
-    const { apiUrl } = environment;
-    const payload = { themeName, postText };
-
-    return this.http.post<Theme>(`${apiUrl}/themes`, payload);
+    return this.http.post<Theme>(`/api/themes`, { themeName, postText });
   }
 
-  getPosts(limit?: number) {
-    if (limit) { return this.http.get<Post[]>(`${apiUrl}/posts?limit=${limit}`) }
+  updateTheme(themeId: string, postId: string, postText: string) {
+    return this.http.put<Theme>(`/api/themes/${themeId}/posts/${postId}`, {
+      postText,
+    });
+  }
 
-    return this.http.get<Post[]>(`${apiUrl}/posts`);
+  deleteTheme(themeId: string, postId: string) {
+    return this.http.delete<Theme>(`/api/themes/${themeId}/posts/${postId}`);
+  }
+
+  // POSTS
+  getPosts(limit?: number) {
+    const { apiUrl } = environment;
+    let url = `${apiUrl}/posts`;
+
+    if (limit) {
+      url += `?limit=${limit}`;
+    }
+
+    return this.http.get<Post[]>(url);
   }
 }
