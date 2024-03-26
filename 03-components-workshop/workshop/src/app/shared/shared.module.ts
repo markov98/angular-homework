@@ -5,6 +5,7 @@ import { WelcomeMsgComponent } from './welcome-msg/welcome-msg.component';
 import { UserRoutingModule } from '../user/user-routing.module';
 import { EmailDirective } from './validators/email.directive';
 import { SlicePipe } from './pipes/slice.pipe';
+import { TimePipe } from './pipes/time.pipe';
 
 
 
@@ -13,7 +14,8 @@ import { SlicePipe } from './pipes/slice.pipe';
     LoaderComponent,
     WelcomeMsgComponent,
     EmailDirective,
-    SlicePipe
+    SlicePipe,
+    TimePipe
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { SlicePipe } from './pipes/slice.pipe';
     LoaderComponent,
     WelcomeMsgComponent,
     EmailDirective,
-    SlicePipe
+    SlicePipe,
+    TimePipe
   ]
 })
 export class SharedModule { }
